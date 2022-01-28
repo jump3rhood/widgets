@@ -1,5 +1,7 @@
 // import Accordion from "./components/Accordion";
-import Search from "./components/Search";
+// import Search from "./components/Search";
+import React, { useState } from "react";
+import Dropdown from "./components/Dropdown";
 const items = [
   {
     title: "What is a dog?",
@@ -17,12 +19,36 @@ const items = [
       "There are many breeds of dogs. Each breed varies in size and temperament. Owners often select a breed of dog that they find to be compatible with their own lifestyle and desires from a companion.",
   },
 ];
+const options = [
+  {
+    label: "Red",
+    value: "red",
+  },
+  {
+    label: "Green",
+    value: "green",
+  },
+  {
+    label: "Blue",
+    value: "blue",
+  },
+  {
+    label: "Cyan",
+    value: "cyan",
+  },
+];
 
 function App() {
+  const [selected, setSelected] = useState(options[0]);
   return (
     <div>
       <h1>Widgets app</h1>
-      <Search />
+      <Dropdown
+        options={options}
+        selected={selected}
+        onSelectedChange={setSelected}
+      />
+      {/* <Search /> */}
       {/* <Accordion items={items} /> */}
     </div>
   );
