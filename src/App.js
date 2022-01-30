@@ -3,6 +3,7 @@ import Search from "./components/Search";
 import React, { useState } from "react";
 import Dropdown from "./components/Dropdown";
 import Route from "./components/Route";
+import Header from "./components/Header";
 const items = [
   {
     title: "What is a dog?",
@@ -44,6 +45,7 @@ function App() {
 
   return (
     <div className="ui container">
+      <Header />
       <Route path="/">
         <Accordion items={items} />
       </Route>
