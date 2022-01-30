@@ -1,7 +1,8 @@
-// import Accordion from "./components/Accordion";
-// import Search from "./components/Search";
+import Accordion from "./components/Accordion";
+import Search from "./components/Search";
 import React, { useState } from "react";
 import Dropdown from "./components/Dropdown";
+import Route from "./components/Route";
 const items = [
   {
     title: "What is a dog?",
@@ -40,16 +41,22 @@ const options = [
 
 function App() {
   const [selected, setSelected] = useState(options[0]);
+
   return (
-    <div>
-      <h1>Widgets app</h1>
-      <Dropdown
-        options={options}
-        selected={selected}
-        onSelectedChange={setSelected}
-      />
-      {/* <Search /> */}
-      {/* <Accordion items={items} /> */}
+    <div className="ui container">
+      <Route path="/">
+        <Accordion items={items} />
+      </Route>
+      <Route path="/dropdown">
+        <Dropdown
+          options={options}
+          selected={selected}
+          onSelectedChange={setSelected}
+        />
+      </Route>
+      <Route path="/search">
+        <Search />
+      </Route>
     </div>
   );
 }
