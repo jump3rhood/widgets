@@ -2,6 +2,9 @@ import React from "react";
 
 const Link = ({ className, href, children }) => {
   const onClick = (evt) => {
+    if (evt.metaKey || evt.ctrlKey) {
+      return;
+    }
     evt.preventDefault();
     window.history.pushState({}, "", href);
     // communicate to the Comps that the url has changed
